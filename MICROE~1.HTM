@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microeconomics — Complete Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #f7f6f3;
+    --surface:   #ffffff;
+    --surface2:  #faf9f7;
+    --border:    #e8e6e1;
+    --border2:   #f0ede8;
+    --text:      #18181b;
+    --text2:     #52525b;
+    --text3:     #a1a1aa;
+    --ink:       #3f3f46;
+    --m1:        #4f46e5;   /* indigo  — Module 1 */
+    --m1-light:  #eef2ff;
+    --m2:        #0891b2;   /* cyan    — Module 2 */
+    --m2-light:  #ecfeff;
+    --m3:        #d97706;   /* amber   — Module 3 */
+    --m3-light:  #fffbeb;
+    --m4:        #dc2626;   /* red     — Module 4 */
+    --m4-light:  #fef2f2;
+    --green:     #16a34a;
+    --green-l:   #f0fdf4;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow:    0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.05);
+    --radius:    14px;
+    --radius-sm: 8px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  .main-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 24px 52px;
+    text-align: center;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 16px;
+  }
+  .main-header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .main-header p {
+    color: var(--text2);
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 28px;
+  }
+  .badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 1px solid;
+    letter-spacing: 0.2px;
+  }
+  .badge.m1 { background: var(--m1-light); color: var(--m1); border-color: #c7d2fe; }
+  .badge.m2 { background: var(--m2-light); color: var(--m2); border-color: #a5f3fc; }
+  .badge.m3 { background: var(--m3-light); color: var(--m3); border-color: #fde68a; }
+  .badge.m4 { background: var(--m4-light); color: var(--m4); border-color: #fecaca; }
+
+  /* ── STICKY NAV ── */
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(247,246,243,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    overflow-x: auto;
+  }
+  .sticky-nav a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 14px 16px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .sticky-nav a:hover { color: var(--text); border-bottom-color: var(--m1); }
+
+  /* ── CONTAINER ── */
+  .container { max-width: 880px; margin: 0 auto; padding: 40px 20px 60px; }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-sm);
+  }
+  .toc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+  .toc-module { padding: 16px; background: var(--surface2); border-radius: var(--radius-sm); border: 1px solid var(--border2); }
+  .toc-module-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc-module.m1 .toc-module-title { color: var(--m1); }
+  .toc-module.m2 .toc-module-title { color: var(--m2); }
+  .toc-module.m3 .toc-module-title { color: var(--m3); }
+  .toc-module.m4 .toc-module-title { color: var(--m4); }
+  .toc-module a { display: block; color: var(--text2); text-decoration: none; font-size: 0.8rem; padding: 3px 0; transition: color 0.15s; }
+  .toc-module a:hover { color: var(--text); }
+
+  /* ── MODULE HEADER ── */
+  .module-header { margin: 48px 0 28px; }
+  .module-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .module-eyebrow.m1 { color: var(--m1); }
+  .module-eyebrow.m2 { color: var(--m2); }
+  .module-eyebrow.m3 { color: var(--m3); }
+  .module-eyebrow.m4 { color: var(--m4); }
+  .module-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+  .module-divider { height: 1px; background: var(--border); margin-top: 20px; }
+
+  /* ── SECTION CARD ── */
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 30px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 100px;
+    letter-spacing: 0.5px;
+  }
+  .section-title .num.m1 { background: var(--m1-light); color: var(--m1); }
+  .section-title .num.m2 { background: var(--m2-light); color: var(--m2); }
+  .section-title .num.m3 { background: var(--m3-light); color: var(--m3); }
+  .section-title .num.m4 { background: var(--m4-light); color: var(--m4); }
+
+  .section h4 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text2);
+    margin: 22px 0 10px;
+  }
+  .section p { color: var(--text2); font-size: 0.9rem; margin-bottom: 10px; }
+  .section strong { color: var(--text); font-weight: 600; }
+
+  /* ── DEFINITION ── */
+  .def {
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    margin: 12px 0;
+    border: 1px solid;
+  }
+  .def.m1 { background: var(--m1-light); border-color: #c7d2fe; }
+  .def.m2 { background: var(--m2-light); border-color: #a5f3fc; }
+  .def.m3 { background: var(--m3-light); border-color: #fde68a; }
+  .def.m4 { background: var(--m4-light); border-color: #fecaca; }
+  .def-label {
+    font-size: 0.67rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+  .def.m1 .def-label { color: var(--m1); }
+  .def.m2 .def-label { color: var(--m2); }
+  .def.m3 .def-label { color: var(--m3); }
+  .def.m4 .def-label { color: var(--m4); }
+  .def p { color: var(--ink); font-size: 0.88rem; margin: 0; }
+
+  /* ── FORMULA ── */
+  .formula {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 18px 20px;
+    margin: 12px 0;
+  }
+  .formula .f-label {
+    font-size: 0.67rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text3);
+    margin-bottom: 8px;
+  }
+  .formula .f-eq {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--m1);
+    line-height: 1.8;
+  }
+  .formula .f-note {
+    font-size: 0.78rem;
+    color: var(--text2);
+    margin-top: 6px;
+  }
+
+  /* ── TABLE ── */
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.85rem; }
+  th {
+    background: var(--surface2);
+    color: var(--text2);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+  }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border2); color: var(--text2); font-size: 0.85rem; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface2); }
+  td strong { color: var(--text); }
+
+  /* ── ALERTS ── */
+  .alert {
+    display: flex;
+    gap: 12px;
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    margin: 12px 0;
+    border: 1px solid;
+    font-size: 0.87rem;
+  }
+  .alert-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .alert-body { color: var(--ink); }
+  .alert-body strong { color: var(--text); }
+  .alert.info { background: var(--m1-light); border-color: #c7d2fe; }
+  .alert.warn { background: var(--m3-light); border-color: #fde68a; }
+  .alert.danger { background: var(--m4-light); border-color: #fecaca; }
+  .alert.success { background: var(--green-l); border-color: #bbf7d0; }
+
+  /* ── LISTS ── */
+  ul, ol { padding-left: 18px; }
+  li { color: var(--text2); margin-bottom: 5px; font-size: 0.88rem; }
+  li strong { color: var(--text); }
+
+  /* ── TWO-COL GRID ── */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  @media (max-width: 600px) { .grid2 { grid-template-columns: 1fr; } }
+
+  /* ── COMPARE BLOCK ── */
+  .compare { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .compare-item { flex: 1; min-width: 180px; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; }
+  .compare-item .ci-title { font-size: 0.78rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .compare-item ul { padding-left: 14px; }
+  .compare-item li { font-size: 0.82rem; }
+
+  /* ── GRAPH ── */
+  .graph-wrap {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    margin: 16px 0;
+    text-align: center;
+  }
+  .graph-wrap .g-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text3);
+    margin-bottom: 14px;
+  }
+  .graph-wrap svg { display: block; margin: 0 auto; }
+
+  /* ── PRACTICE QUESTION ── */
+  .pq { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 14px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .pq-q { background: var(--surface2); padding: 16px 20px; font-size: 0.9rem; color: var(--text); font-weight: 500; border-bottom: 1px solid var(--border); }
+  .pq-q span { font-weight: 700; color: var(--m1); margin-right: 6px; }
+  .pq-a { padding: 16px 20px; }
+  .pq-a p { color: var(--text2); font-size: 0.87rem; margin-bottom: 6px; }
+  .pq-a p strong { color: var(--text); }
+
+  /* ── CHEAT SHEET ── */
+  .cheat-header {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px;
+    text-align: center;
+    margin: 48px 0 24px;
+    box-shadow: var(--shadow);
+  }
+  .cheat-header .ch-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--text3); margin-bottom: 10px;
+  }
+  .cheat-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .cheat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; margin-bottom: 20px; }
+  .cheat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .cheat-card h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text2);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border2);
+  }
+  .cheat-card .cf {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--m1);
+    display: block;
+    padding: 3px 0;
+  }
+  .cheat-card .cn { font-size: 0.75rem; color: var(--text3); display: block; margin-bottom: 6px; }
+
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  /* ── PRACTICE HEADER ── */
+  .practice-header {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin: 48px 0 24px;
+    box-shadow: var(--shadow-sm);
+  }
+  .practice-header .ch-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; }
+  .practice-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--text); }
+
+  .sub-module-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 24px 0 10px;
+  }
+  .sub-module-label.m1 { color: var(--m1); }
+  .sub-module-label.m2 { color: var(--m2); }
+  .sub-module-label.m3 { color: var(--m3); }
+  .sub-module-label.m4 { color: var(--m4); }
+
+  .footer { text-align: center; padding: 40px 0 20px; color: var(--text3); font-size: 0.8rem; }
+  .footer strong { color: var(--text2); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="main-header">
+  <div class="header-eyebrow">IIM Bangalore · BBA DBE Term 2 · Prof. Sanket Ramkant Patil</div>
+  <h1>Microeconomics<br>Complete Notes</h1>
+  <p>MCQ-optimized · All definitions · All formulas · All graphs · Master cheat sheet</p>
+  <div class="badges">
+    <span class="badge m1">Module 1 — Foundations</span>
+    <span class="badge m2">Module 2 — Markets</span>
+    <span class="badge m3">Module 3 — Firms</span>
+    <span class="badge m4">Module 4 — Monopoly</span>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <a href="#m1">Module 1</a>
+  <a href="#m2">Module 2</a>
+  <a href="#m3">Module 3</a>
+  <a href="#m4">Module 4</a>
+  <a href="#cheatsheet">Cheat Sheet</a>
+  <a href="#practice">Practice Qs</a>
+</nav>
+
+<div class="container">
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">Table of Contents</div>
+  <div class="toc-grid">
+    <div class="toc-module m1">
+      <div class="toc-module-title">Module 1 · Foundations</div>
+      <a href="#m1-opp">Opportunity &amp; Sunk Cost</a>
+      <a href="#m1-marginal">Marginal Principle</a>
+      <a href="#m1-markets">Market Types</a>
+      <a href="#m1-demand">Law of Demand</a>
+      <a href="#m1-supply">Law of Supply</a>
+      <a href="#m1-shifters">Demand &amp; Supply Shifters</a>
+    </div>
+    <div class="toc-module m2">
+      <div class="toc-module-title">Module 2 · Markets</div>
+      <a href="#m2-eq">Market Equilibrium</a>
+      <a href="#m2-surplus">Surplus &amp; Invisible Hand</a>
+      <a href="#m2-elast">Price Elasticity</a>
+      <a href="#m2-inc">Income &amp; Cross Elasticity</a>
+      <a href="#m2-rev">Elasticity &amp; Revenue</a>
+      <a href="#m2-tax">Tax Incidence</a>
+    </div>
+    <div class="toc-module m3">
+      <div class="toc-module-title">Module 3 · Firms</div>
+      <a href="#m3-profit">Economic vs Accounting Profit</a>
+      <a href="#m3-prod">Production Function</a>
+      <a href="#m3-costs">Cost Categories</a>
+      <a href="#m3-curves">Cost Curves</a>
+      <a href="#m3-supply">Supply &amp; Shutdown</a>
+      <a href="#m3-lr">Long-Run Equilibrium</a>
+    </div>
+    <div class="toc-module m4">
+      <div class="toc-module-title">Module 4 · Monopoly</div>
+      <a href="#m4-def">What is a Monopoly?</a>
+      <a href="#m4-prof">Profit Maximization</a>
+      <a href="#m4-dwl">Social Cost / DWL</a>
+      <a href="#m4-pd">Price Discrimination</a>
+      <a href="#m4-lerner">Lerner Index</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ MODULE 1 ══════════════════════════ -->
+<div id="m1">
+  <div class="module-header">
+    <div class="module-eyebrow m1">Module 01</div>
+    <div class="module-title">Foundations of Economics</div>
+    <div class="module-divider"></div>
+  </div>
+
+  <div class="section" id="m1-opp">
+    <div class="section-title"><span class="num m1">1.1</span> Opportunity Cost &amp; Sunk Cost</div>
+
+    <div class="def m1">
+      <div class="def-label">Opportunity Cost</div>
+      <p>The value of the <strong>next-best alternative you give up</strong> when making a choice. Every decision has an opportunity cost — it's the true economic cost of any action.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Opportunity Cost</div>
+      <div class="f-eq">OC = Value of the best foregone alternative</div>
+      <div class="f-note">Not just money — includes time, effort, and any foregone benefit.</div>
+    </div>
+
+    <h4>Example — Ramesh the Plumber</h4>
+    <p>Ramesh earns ₹500/day. He takes 2 days off to study. Workshop fee = ₹0. But <strong>economic cost = ₹1,000</strong> (2 days' foregone wages). The accountant sees ₹0; the economist sees ₹1,000.</p>
+
+    <div class="def m4">
+      <div class="def-label">Sunk Cost</div>
+      <p>A cost that has <strong>already been paid and cannot be recovered</strong>, regardless of future decisions. It's gone — treat it as irrelevant.</p>
+    </div>
+
+    <div class="alert danger">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-body"><strong>MCQ Trap — Sunk Cost Fallacy:</strong> "We already spent ₹5 lakh, so we must continue." This is wrong. Sunk costs are irrelevant to forward-looking decisions. Never factor them in.</div>
+    </div>
+
+    <table>
+      <tr><th>Cost Type</th><th>Recoverable?</th><th>Relevant to Decisions?</th><th>Example</th></tr>
+      <tr><td><strong>Opportunity Cost</strong></td><td>N/A</td><td>✅ Always</td><td>Foregone salary</td></tr>
+      <tr><td><strong>Sunk Cost</strong></td><td>❌ Never</td><td>❌ Never</td><td>Non-refundable ticket</td></tr>
+      <tr><td><strong>Fixed Cost</strong></td><td>Only if you exit</td><td>✅ Affects profit</td><td>Rent</td></tr>
+    </table>
+  </div>
+
+  <div class="section" id="m1-marginal">
+    <div class="section-title"><span class="num m1">1.2</span> The Marginal Principle</div>
+
+    <div class="def m1">
+      <div class="def-label">Core Principle</div>
+      <p>Increase an activity if <strong>Marginal Benefit (MB) ≥ Marginal Cost (MC)</strong>. The optimal point is where <strong>MB = MC</strong>. Economists always think at the margin — one more unit.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Optimal Decision Rule</div>
+      <div class="f-eq">Do more if:  MB ≥ MC</div>
+      <div class="f-eq">Stop when:   MB = MC  ← optimal point</div>
+    </div>
+
+    <p><strong>Example:</strong> Study one more hour if the exam score gain (MB) ≥ cost of your time + fatigue (MC). Stop adding study hours once MB = MC.</p>
+
+    <div class="graph-wrap">
+      <div class="g-title">The Marginal Principle — Optimal Point at MB = MC</div>
+      <svg width="400" height="220" viewBox="0 0 400 220">
+        <defs><marker id="a1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0,7 3.5,0 7" fill="#a1a1aa"/></marker></defs>
+        <line x1="50" y1="185" x2="375" y2="185" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a1)"/>
+        <line x1="50" y1="185" x2="50" y2="20" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a1)"/>
+        <text x="378" y="189" fill="#a1a1aa" font-size="11" font-family="Inter,sans-serif">Q</text>
+        <text x="36" y="16" fill="#a1a1aa" font-size="11" font-family="Inter,sans-serif">$</text>
+        <!-- MB line -->
+        <line x1="70" y1="50" x2="345" y2="165" stroke="#4f46e5" stroke-width="2.5"/>
+        <text x="348" y="169" fill="#4f46e5" font-size="12" font-weight="bold" font-family="Inter,sans-serif">MB</text>
+        <!-- MC line -->
+        <line x1="70" y1="165" x2="345" y2="50" stroke="#0891b2" stroke-width="2.5"/>
+        <text x="348" y="55" fill="#0891b2" font-size="12" font-weight="bold" font-family="Inter,sans-serif">MC</text>
+        <!-- Intersection -->
+        <circle cx="207" cy="108" r="7" fill="white" stroke="#d97706" stroke-width="2.5"/>
+        <line x1="207" y1="108" x2="207" y2="185" stroke="#d97706" stroke-dasharray="5,3" stroke-width="1.5"/>
+        <text x="198" y="200" fill="#d97706" font-size="11" font-family="Inter,sans-serif" font-weight="600">Q*</text>
+        <text x="130" y="94" fill="#d97706" font-size="10" font-family="Inter,sans-serif">Optimal: MB = MC</text>
+        <!-- Region labels -->
+        <text x="80" y="148" fill="#16a34a" font-size="10" font-family="Inter,sans-serif">Do more →</text>
+        <text x="240" y="148" fill="#dc2626" font-size="10" font-family="Inter,sans-serif">← Do less</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="section" id="m1-markets">
+    <div class="section-title"><span class="num m1">1.3</span> Market Types</div>
+    <table>
+      <tr><th>Market Structure</th><th>Sellers</th><th>Price Control</th><th>Entry Barriers</th><th>Example</th></tr>
+      <tr><td><strong>Perfect Competition</strong></td><td>Many</td><td>None — price taker</td><td>Free entry</td><td>Agriculture</td></tr>
+      <tr><td><strong>Monopolistic Competition</strong></td><td>Many</td><td>Some (differentiated)</td><td>Low</td><td>Restaurants, clothing</td></tr>
+      <tr><td><strong>Oligopoly</strong></td><td>Few</td><td>Significant</td><td>High</td><td>Airlines, telecom</td></tr>
+      <tr><td><strong>Monopoly</strong></td><td>One</td><td>Full — price maker</td><td>Blocked</td><td>Patents, utilities</td></tr>
+    </table>
+    <div class="alert info">
+      <div class="alert-icon">💡</div>
+      <div class="alert-body">In <strong>perfect competition</strong>: P = MR = AR. Firm is a price taker. In <strong>monopoly</strong>: P &gt; MR. Firm is a price maker. This distinction drives all of Module 4.</div>
+    </div>
+  </div>
+
+  <div class="section" id="m1-demand">
+    <div class="section-title"><span class="num m1">1.4</span> Law of Demand</div>
+
+    <div class="def m1">
+      <div class="def-label">Law of Demand</div>
+      <p>As price increases, quantity demanded decreases — an <strong>inverse relationship</strong> — ceteris paribus (all else equal). Demand curves slope downward.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Linear Demand Function</div>
+      <div class="f-eq">Qd = a − b·P</div>
+      <div class="f-note">a = autonomous demand (intercept). b = responsiveness to price (always positive coefficient, but negative relationship). Inverse form: P = (a/b) − (1/b)·Q</div>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Full Demand Function</div>
+      <div class="f-eq">Qx = a − b·Px + c·Py − d·I + e·Ax + ...</div>
+      <div class="f-note">Px = own price, Py = related good price, I = income, Ax = advertising. Signs depend on whether goods are substitutes/complements/normal/inferior.</div>
+    </div>
+
+    <h4>Why Demand Slopes Downward — 3 Reasons</h4>
+    <ul>
+      <li><strong>Substitution Effect:</strong> Higher price → switch to cheaper alternatives.</li>
+      <li><strong>Income Effect:</strong> Higher price → real purchasing power falls → buy less.</li>
+      <li><strong>Diminishing Marginal Utility:</strong> Each extra unit gives less satisfaction → willing to pay less for it.</li>
+    </ul>
+
+    <div class="graph-wrap">
+      <div class="g-title">Demand Curve — Downward Sloping</div>
+      <svg width="360" height="210" viewBox="0 0 360 210">
+        <defs><marker id="a2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0,7 3.5,0 7" fill="#a1a1aa"/></marker></defs>
+        <line x1="45" y1="180" x2="330" y2="180" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a2)"/>
+        <line x1="45" y1="180" x2="45" y2="15" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a2)"/>
+        <text x="334" y="184" fill="#a1a1aa" font-size="11" font-family="Inter,sans-serif">Q</text>
+        <text x="30" y="12" fill="#a1a1aa" font-size="11" font-family="Inter,sans-serif">P</text>
+        <line x1="65" y1="30" x2="310" y2="165" stroke="#4f46e5" stroke-width="2.5"/>
+        <text x="315" y="169" fill="#4f46e5" font-size="13" font-weight="bold" font-family="Inter,sans-serif">D</text>
+        <!-- example point -->
+        <circle cx="150" cy="90" r="5" fill="white" stroke="#d97706" stroke-width="2"/>
+        <line x1="150" y1="90" x2="150" y2="180" stroke="#d97706" stroke-dasharray="4,3" stroke-width="1.5"/>
+        <line x1="45" y1="90" x2="150" y2="90" stroke="#d97706" stroke-dasharray="4,3" stroke-width="1.5"/>
+        <text x="140" y="195" fill="#d97706" font-size="10" font-family="Inter,sans-serif">Q₁</text>
+        <text x="14" y="94" fill="#d97706" font-size="10" font-family="Inter,sans-serif">P₁</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="section" id="m1-supply">
+    <div class="section-title"><span class="num m1">1.5</span> Law of Supply</div>
+
+    <div class="def m1">
+      <div class="def-label">Law of Supply</div>
+      <p>As price increases, quantity supplied increases — a <strong>positive relationship</strong> — ceteris paribus. Higher prices make production more profitable, attracting more output.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Linear Supply Function</div>
+      <div class="f-eq">Qs = c + d·P</div>
+      <div class="f-note">d is always positive (upward sloping). Example from course: Qs = 2000 + 3Px − 4Py − Pi</div>
+    </div>
+  </div>
+
+  <div class="section" id="m1-shifters">
+    <div class="section-title"><span class="num m1">1.6</span> Demand &amp; Supply Shifters</div>
+
+    <div class="alert warn">
+      <div class="alert-icon">📌</div>
+      <div class="alert-body"><strong>Critical distinction:</strong> A <strong>change in quantity demanded</strong> = movement along the same curve (own price changed). A <strong>change in demand</strong> = the entire curve shifts (a non-price factor changed).</div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <h4>Demand Shifters</h4>
+        <table>
+          <tr><th>Factor</th><th>Effect</th></tr>
+          <tr><td>Income ↑ (normal good)</td><td>D shifts right</td></tr>
+          <tr><td>Income ↑ (inferior good)</td><td>D shifts left</td></tr>
+          <tr><td>Substitute price ↑</td><td>D shifts right</td></tr>
+          <tr><td>Complement price ↑</td><td>D shifts left</td></tr>
+          <tr><td>Taste/preference ↑</td><td>D shifts right</td></tr>
+          <tr><td>Expected future price ↑</td><td>D shifts right</td></tr>
+          <tr><td>Population ↑</td><td>D shifts right</td></tr>
+        </table>
+      </div>
+      <div>
+        <h4>Supply Shifters</h4>
+        <table>
+          <tr><th>Factor</th><th>Effect</th></tr>
+          <tr><td>Input/labour cost ↑</td><td>S shifts left</td></tr>
+          <tr><td>Technology improves</td><td>S shifts right</td></tr>
+          <tr><td>Number of sellers ↑</td><td>S shifts right</td></tr>
+          <tr><td>Expected future price ↑</td><td>S shifts left</td></tr>
+          <tr><td>Government subsidy</td><td>S shifts right</td></tr>
+          <tr><td>Tax on production</td><td>S shifts left</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div><!-- /MODULE 1 -->
+
+<!-- ══════════════════════════ MODULE 2 ══════════════════════════ -->
+<div id="m2">
+  <div class="module-header">
+    <div class="module-eyebrow m2">Module 02</div>
+    <div class="module-title">Markets in Action</div>
+    <div class="module-divider"></div>
+  </div>
+
+  <div class="section" id="m2-eq">
+    <div class="section-title"><span class="num m2">2.1</span> Market Equilibrium</div>
+
+    <div class="def m2">
+      <div class="def-label">Market Equilibrium</div>
+      <p>The price (P*) and quantity (Q*) where <strong>Qd = Qs</strong>. The market clears — no surplus, no shortage.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">How to Find Equilibrium</div>
+      <div class="f-eq">Step 1: Set Qd = Qs</div>
+      <div class="f-eq">Step 2: Solve for P*</div>
+      <div class="f-eq">Step 3: Substitute P* back to find Q*</div>
+    </div>
+
+    <table>
+      <tr><th>Situation</th><th>Meaning</th><th>Market Response</th></tr>
+      <tr><td><strong>Price above P*</strong></td><td>Surplus (excess supply)</td><td>Sellers lower price → return to P*</td></tr>
+      <tr><td><strong>Price below P*</strong></td><td>Shortage (excess demand)</td><td>Buyers bid price up → return to P*</td></tr>
+    </table>
+
+    <div class="graph-wrap">
+      <div class="g-title">Market Equilibrium — Supply &amp; Demand</div>
+      <svg width="380" height="230" viewBox="0 0 380 230">
+        <defs><marker id="a3" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0,7 3.5,0 7" fill="#a1a1aa"/></marker></defs>
+        <line x1="50" y1="200" x2="355" y2="200" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a3)"/>
+        <line x1="50" y1="200" x2="50" y2="20" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a3)"/>
+        <text x="359" y="204" fill="#a1a1aa" font-size="11" font-family="Inter,sans-serif">Q</text>
+        <text x="36" y="17" fill="#a1a1aa" font-size="11" font-family="Inter,sans-serif">P</text>
+        <!-- Demand -->
+        <line x1="70" y1="40" x2="330" y2="185" stroke="#4f46e5" stroke-width="2.5"/>
+        <text x="334" y="190" fill="#4f46e5" font-size="13" font-weight="bold" font-family="Inter,sans-serif">D</text>
+        <!-- Supply -->
+        <line x1="70" y1="185" x2="330" y2="40" stroke="#0891b2" stroke-width="2.5"/>
+        <text x="334" y="45" fill="#0891b2" font-size="13" font-weight="bold" font-family="Inter,sans-serif">S</text>
+        <!-- Equilibrium -->
+        <circle cx="200" cy="113" r="7" fill="white" stroke="#d97706" stroke-width="2.5"/>
+        <line x1="200" y1="113" x2="200" y2="200" stroke="#d97706" stroke-dasharray="5,3" stroke-width="1.5"/>
+        <line x1="50" y1="113" x2="200" y2="113" stroke="#d97706" stroke-dasharray="5,3" stroke-width="1.5"/>
+        <text x="193" y="215" fill="#d97706" font-size="11" font-weight="600" font-family="Inter,sans-serif">Q*</text>
+        <text x="18" y="117" fill="#d97706" font-size="11" font-weight="600" font-family="Inter,sans-serif">P*</text>
+        <text x="192" y="104" fill="#d97706" font-size="10" font-family="Inter,sans-serif">E</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="section" id="m2-surplus">
+    <div class="section-title"><span class="num m2">2.2</span> Invisible Hand, Consumer &amp; Producer Surplus</div>
+
+    <div class="def m2">
+      <div class="def-label">Invisible Hand (Adam Smith)</div>
+      <p>Individual self-interest in competitive markets leads to socially efficient outcomes — as if guided by an "invisible hand." No central planner needed; the market self-organises.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="def m1">
+        <div class="def-label">Consumer Surplus (CS)</div>
+        <p>What consumers <strong>were willing to pay</strong> minus what they <strong>actually paid</strong>.<br>= Area below demand curve, above price line (P*).</p>
+      </div>
+      <div class="def m4">
+        <div class="def-label">Producer Surplus (PS)</div>
+        <p>What producers <strong>received</strong> minus their <strong>minimum acceptable price</strong>.<br>= Area above supply curve, below price line (P*).</p>
+      </div>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Total Surplus (Social Welfare)</div>
+      <div class="f-eq">Total Surplus = CS + PS</div>
+      <div class="f-note">Maximised at competitive equilibrium (P*, Q*). Any artificial distortion (price control, tax, monopoly) creates Deadweight Loss — a reduction in total surplus.</div>
+    </div>
+
+    <div class="graph-wrap">
+      <div class="g-title">Consumer Surplus &amp; Producer Surplus</div>
+      <svg width="380" height="245" viewBox="0 0 380 245">
+        <defs><marker id="a4" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0,7 3.5,0 7" fill="#a1a1aa"/></marker></defs>
+        <line x1="50" y1="210" x2="355" y2="210" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a4)"/>
+        <line x1="50" y1="210" x2="50" y2="20" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a4)"/>
+        <text x="359" y="214" fill="#a1a1aa" font-size="11" font-family="Inter,sans-serif">Q</text>
+        <text x="36" y="17" fill="#a1a1aa" font-size="11" font-family="Inter,sans-serif">P</text>
+        <!-- CS shaded -->
+        <polygon points="70,40 200,120 70,120" fill="rgba(79,70,229,0.12)"/>
+        <!-- PS shaded -->
+        <polygon points="70,210 200,210 200,120 70,185" fill="rgba(8,145,178,0.12)"/>
+        <!-- Demand -->
+        <line x1="70" y1="40" x2="330" y2="195" stroke="#4f46e5" stroke-width="2.5"/>
+        <text x="334" y="200" fill="#4f46e5" font-size="13" font-weight="bold" font-family="Inter,sans-serif">D</text>
+        <!-- Supply -->
+        <line x1="70" y1="185" x2="330" y2="45" stroke="#0891b2" stroke-width="2.5"/>
+        <text x="334" y="50" fill="#0891b2" font-size="13" font-weight="bold" font-family="Inter,sans-serif">S</text>
+        <!-- P* line -->
+        <line x1="50" y1="120" x2="200" y2="120" stroke="#d97706" stroke-dasharray="5,3" stroke-width="1.5"/>
+        <line x1="200" y1="120" x2="200" y2="210" stroke="#d97706" stroke-dasharray="5,3" stroke-width="1.5"/>
+        <text x="18" y="124" fill="#d97706" font-size="11" font-weight="600" font-family="Inter,sans-serif">P*</text>
+        <text x="193" y="225" fill="#d97706" font-size="11" font-weight="600" font-family="Inter,sans-serif">Q*</text>
+        <!-- Labels -->
+        <text x="90" y="100" fill="#4f46e5" font-size="12" font-weight="bold" font-family="Inter,sans-serif">CS</text>
+        <text x="90" y="170" fill="#0891b2" font-size="12" font-weight="bold" font-family="Inter,sans-serif">PS</text>
+        <circle cx="200" cy="120" r="5" fill="white" stroke="#d97706" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div class="alert success">
+      <div class="alert-icon">✅</div>
+      <div class="alert-body">At competitive equilibrium, <strong>Total Surplus is maximised</strong>. Any deviation (price floor, price ceiling, monopoly) creates deadweight loss — value destroyed that benefits no one.</div>
+    </div>
+  </div>
+
+  <div class="section" id="m2-elast">
+    <div class="section-title"><span class="num m2">2.3</span> Price Elasticity of Demand</div>
+
+    <div class="def m2">
+      <div class="def-label">Price Elasticity of Demand (PED)</div>
+      <p>Measures <strong>how sensitive quantity demanded is to a price change</strong>. If price rises 1%, by what % does Qd change?</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Price Elasticity of Demand</div>
+      <div class="f-eq">εp = (% ΔQd) / (% ΔP)  =  (ΔQ/Q) / (ΔP/P)  =  (ΔQ/ΔP) × (P/Q)</div>
+      <div class="f-note">Always negative (demand slopes down). Compare using absolute value |εp|.</div>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Midpoint Formula (more accurate between two points)</div>
+      <div class="f-eq">εp = [(Q₂−Q₁) / ((Q₂+Q₁)/2)]  ÷  [(P₂−P₁) / ((P₂+P₁)/2)]</div>
+    </div>
+
+    <table>
+      <tr><th>|εp|</th><th>Type</th><th>Meaning</th><th>Example</th></tr>
+      <tr><td>&gt; 1</td><td><strong>Elastic</strong></td><td>Qd changes more than P</td><td>Luxury goods, branded items</td></tr>
+      <tr><td>&lt; 1</td><td><strong>Inelastic</strong></td><td>Qd changes less than P</td><td>Insulin, salt, petrol</td></tr>
+      <tr><td>= 1</td><td><strong>Unit Elastic</strong></td><td>Qd changes same % as P</td><td>Midpoint of linear demand</td></tr>
+      <tr><td>= 0</td><td><strong>Perfectly Inelastic</strong></td><td>Qd doesn't change at all</td><td>Life-saving medication</td></tr>
+      <tr><td>= ∞</td><td><strong>Perfectly Elastic</strong></td><td>Any price rise → Qd = 0</td><td>Perfectly competitive firm</td></tr>
+    </table>
+
+    <h4>Determinants of Elasticity</h4>
+    <ul>
+      <li><strong>Availability of substitutes:</strong> More substitutes = more elastic (Pepsi vs. Coke)</li>
+      <li><strong>Necessity vs. luxury:</strong> Necessities are inelastic; luxuries are elastic</li>
+      <li><strong>Time horizon:</strong> More elastic in long run (more time to adapt)</li>
+      <li><strong>Budget share:</strong> Larger share of income = more elastic</li>
+      <li><strong>Narrow definition:</strong> "Food" is inelastic; "Dominos pizza" is elastic</li>
+    </ul>
+
+    <div class="alert warn">
+      <div class="alert-icon">📌</div>
+      <div class="alert-body"><strong>Key fact for linear demand:</strong> The top half of the curve is elastic (|ε|&gt;1), midpoint is unit elastic, bottom half is inelastic. Elasticity changes along the line even though the slope is constant.</div>
+    </div>
+  </div>
+
+  <div class="section" id="m2-inc">
+    <div class="section-title"><span class="num m2">2.4</span> Income &amp; Cross-Price Elasticity</div>
+
+    <div class="formula">
+      <div class="f-label">Income Elasticity of Demand (YED)</div>
+      <div class="f-eq">εM = (% ΔQd) / (% ΔIncome)  =  (ΔQ/Q) / (ΔM/M)</div>
+      <div class="f-note">Sign tells you if good is normal (+) or inferior (−). Magnitude tells you if it's a luxury (&gt;1) or necessity (0 to 1).</div>
+    </div>
+
+    <table>
+      <tr><th>εM</th><th>Good Type</th><th>Behaviour</th></tr>
+      <tr><td>&gt; 1</td><td><strong>Luxury / Superior</strong></td><td>Demand rises faster than income (designer goods)</td></tr>
+      <tr><td>0 to 1</td><td><strong>Normal / Necessity</strong></td><td>Demand rises with income, but slower (food, clothing)</td></tr>
+      <tr><td>&lt; 0</td><td><strong>Inferior Good</strong></td><td>Demand falls when income rises (instant noodles, cheap bread)</td></tr>
+    </table>
+
+    <div class="formula">
+      <div class="f-label">Cross-Price Elasticity (XED)</div>
+      <div class="f-eq">εXY = (% ΔQx) / (% ΔPy)  =  (ΔQx/Qx) / (ΔPy/Py)</div>
+      <div class="f-note">Measures how demand for good X responds to a price change in good Y.</div>
+    </div>
+
+    <table>
+      <tr><th>εXY</th><th>Relationship</th><th>Logic</th><th>Example</th></tr>
+      <tr><td>&gt; 0</td><td><strong>Substitutes</strong></td><td>Py↑ → switch to X → Qx↑</td><td>Tea &amp; Coffee</td></tr>
+      <tr><td>&lt; 0</td><td><strong>Complements</strong></td><td>Py↑ → use both less → Qx↓</td><td>Cars &amp; Petrol</td></tr>
+      <tr><td>= 0</td><td><strong>Unrelated</strong></td><td>No relationship at all</td><td>Bread &amp; Cars</td></tr>
+    </table>
+  </div>
+
+  <div class="section" id="m2-rev">
+    <div class="section-title"><span class="num m2">2.5</span> Elasticity &amp; Total Revenue</div>
+
+    <div class="alert warn">
+      <div class="alert-icon">⚡</div>
+      <div class="alert-body"><strong>Most tested concept in Module 2.</strong> The relationship between elasticity and total revenue is a guaranteed MCQ topic.</div>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Total Revenue</div>
+      <div class="f-eq">TR = P × Q</div>
+    </div>
+
+    <table>
+      <tr><th>Elasticity</th><th>Price ↑ → TR?</th><th>Price ↓ → TR?</th><th>Why?</th></tr>
+      <tr><td><strong>Elastic (|ε|&gt;1)</strong></td><td>TR ↓</td><td>TR ↑</td><td>Qd drops so much it overwhelms the price gain</td></tr>
+      <tr><td><strong>Inelastic (|ε|&lt;1)</strong></td><td>TR ↑</td><td>TR ↓</td><td>Qd barely changes; price gain dominates</td></tr>
+      <tr><td><strong>Unit Elastic (|ε|=1)</strong></td><td>TR unchanged</td><td>TR unchanged</td><td>P and Q effects cancel out exactly</td></tr>
+    </table>
+
+    <div class="alert info">
+      <div class="alert-icon">💡</div>
+      <div class="alert-body"><strong>Memory trick:</strong> Elastic = Opposite (P up, TR down). Inelastic = Same direction (P up, TR up).</div>
+    </div>
+  </div>
+
+  <div class="section" id="m2-tax">
+    <div class="section-title"><span class="num m2">2.6</span> Tax Incidence &amp; Deadweight Loss</div>
+
+    <div class="def m2">
+      <div class="def-label">Tax Incidence</div>
+      <p>Who <strong>actually bears the burden</strong> of a tax — buyers, sellers, or both. This is determined by relative elasticity, NOT by who legally pays the tax.</p>
+    </div>
+
+    <div class="alert danger">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-body"><strong>Golden Rule:</strong> The <strong>more inelastic side</strong> bears more of the tax burden. If demand is inelastic (like petrol), consumers bear most of it. If supply is inelastic, producers bear most.</div>
+    </div>
+
+    <table>
+      <tr><th>Scenario</th><th>Who Bears More?</th></tr>
+      <tr><td>Demand inelastic, Supply elastic</td><td><strong>Consumers</strong> bear more</td></tr>
+      <tr><td>Demand elastic, Supply inelastic</td><td><strong>Producers</strong> bear more</td></tr>
+      <tr><td>Perfectly inelastic demand</td><td>Consumers bear 100%</td></tr>
+      <tr><td>Perfectly inelastic supply</td><td>Producers bear 100%</td></tr>
+    </table>
+
+    <div class="formula">
+      <div class="f-label">Tax Revenue &amp; Deadweight Loss</div>
+      <div class="f-eq">Tax Revenue  = t × Q_after_tax</div>
+      <div class="f-eq">DWL (tax)    = ½ × t × ΔQ</div>
+      <div class="f-note">t = per-unit tax. ΔQ = reduction in quantity. DWL = value destroyed by the tax that goes to no one.</div>
+    </div>
+
+    <p>A tax creates a <strong>wedge</strong> between buyer price (Pb) and seller price (Ps): <strong>Pb − Ps = t</strong>. Equilibrium quantity falls below Q*, destroying some total surplus.</p>
+  </div>
+</div><!-- /MODULE 2 -->
+
+<!-- ══════════════════════════ MODULE 3 ══════════════════════════ -->
+<div id="m3">
+  <div class="module-header">
+    <div class="module-eyebrow m3">Module 03</div>
+    <div class="module-title">Behavior of Firms &amp; Cost Theory</div>
+    <div class="module-divider"></div>
+  </div>
+
+  <div class="section" id="m3-profit">
+    <div class="section-title"><span class="num m3">3.1</span> Economic vs. Accounting Profit</div>
+
+    <div class="compare">
+      <div class="compare-item">
+        <div class="ci-title" style="color:var(--m3)">Accounting Profit</div>
+        <ul>
+          <li>TR minus <strong>explicit costs only</strong></li>
+          <li>Explicit = actual cash paid out</li>
+          <li>What your accountant reports</li>
+          <li>Ignores opportunity cost of owner's inputs</li>
+        </ul>
+      </div>
+      <div class="compare-item">
+        <div class="ci-title" style="color:var(--m1)">Economic Profit</div>
+        <ul>
+          <li>TR minus <strong>explicit + implicit costs</strong></li>
+          <li>Implicit = opportunity costs (foregone salary, return on capital)</li>
+          <li>What economists use for decisions</li>
+          <li>Always ≤ accounting profit</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Profit Formulas</div>
+      <div class="f-eq">Accounting Profit  = TR − Explicit Costs</div>
+      <div class="f-eq">Economic Profit    = TR − Explicit Costs − Implicit Costs</div>
+      <div class="f-eq">Economic Profit    = Accounting Profit − Implicit Costs</div>
+      <div class="f-note">Zero economic profit = "normal profit." The firm earns exactly its opportunity cost. This is the long-run competitive equilibrium.</div>
+    </div>
+
+    <div class="alert warn">
+      <div class="alert-icon">📌</div>
+      <div class="alert-body"><strong>Zero economic profit ≠ zero accounting profit.</strong> Zero economic profit means the firm covers all costs including opportunity costs — no incentive to enter or exit.</div>
+    </div>
+  </div>
+
+  <div class="section" id="m3-prod">
+    <div class="section-title"><span class="num m3">3.2</span> Production Function &amp; Marginal Product</div>
+
+    <div class="def m3">
+      <div class="def-label">Production Function</div>
+      <p>Shows the maximum output (q) achievable from combinations of inputs — Labour (L) and Capital (K). Short run: K fixed. Long run: both variable.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Production Function &amp; Marginal Product</div>
+      <div class="f-eq">q = f(L, K)</div>
+      <div class="f-eq">MPL = ΔQ / ΔL   (extra output from one more worker)</div>
+    </div>
+
+    <div class="def m3">
+      <div class="def-label">Diminishing Marginal Product</div>
+      <p>As you add more of one input (e.g., workers) while holding others fixed, each extra unit adds <strong>progressively less</strong> to output. The 10th worker adds less than the 1st — they compete for the same machines.</p>
+    </div>
+
+    <p>This is why MC curves eventually slope upward — each additional unit of output requires more labour (at higher cost) as MPL declines.</p>
+
+    <h4>Returns to Scale (Long Run Only)</h4>
+    <table>
+      <tr><th>Type</th><th>What Happens</th><th>LRATC Shape</th></tr>
+      <tr><td><strong>Increasing Returns to Scale</strong></td><td>Double inputs → more than double output</td><td>Falling (economies of scale)</td></tr>
+      <tr><td><strong>Constant Returns to Scale</strong></td><td>Double inputs → exactly double output</td><td>Flat</td></tr>
+      <tr><td><strong>Decreasing Returns to Scale</strong></td><td>Double inputs → less than double output</td><td>Rising (diseconomies of scale)</td></tr>
+    </table>
+  </div>
+
+  <div class="section" id="m3-costs">
+    <div class="section-title"><span class="num m3">3.3</span> Cost Categories — Fixed, Variable, Sunk</div>
+
+    <table>
+      <tr><th>Type</th><th>Changes with Q?</th><th>Recoverable?</th><th>Affects Exit?</th><th>Example</th></tr>
+      <tr><td><strong>Variable Cost (VC)</strong></td><td>✅ Yes</td><td>✅ (stop producing)</td><td>Yes</td><td>Raw materials, hourly wages</td></tr>
+      <tr><td><strong>Fixed Cost (FC)</strong></td><td>❌ No</td><td>Only if you exit</td><td>Yes</td><td>Rent, machinery lease</td></tr>
+      <tr><td><strong>Sunk Cost</strong></td><td>❌ No</td><td>❌ Never</td><td>No</td><td>R&amp;D already spent, non-refundable licence</td></tr>
+    </table>
+
+    <div class="alert danger">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-body"><strong>Fixed vs. Sunk — Critical Difference:</strong> Fixed costs affect your profit and exit decision (leave the market and you save FC). Sunk costs are gone regardless — even if you exit, sunk costs cannot be recovered.</div>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Total Cost</div>
+      <div class="f-eq">TC = FC + VC</div>
+      <div class="f-eq">Profit (π) = TR − TC = TR − FC − VC</div>
+    </div>
+
+    <div class="compare">
+      <div class="compare-item">
+        <div class="ci-title" style="color:var(--m3)">Short Run</div>
+        <ul>
+          <li>At least one input is fixed</li>
+          <li>FC &gt; 0</li>
+          <li>Capital (K) is fixed</li>
+          <li>Only labour adjusts</li>
+        </ul>
+      </div>
+      <div class="compare-item">
+        <div class="ci-title" style="color:var(--m2)">Long Run</div>
+        <ul>
+          <li>All inputs are variable</li>
+          <li>FC = 0</li>
+          <li>Both K and L adjust</li>
+          <li>New firms can enter/exit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="m3-curves">
+    <div class="section-title"><span class="num m3">3.4</span> All Cost Curves — AFC, AVC, ATC, MC</div>
+
+    <div class="formula">
+      <div class="f-label">Per-Unit (Average) Cost Formulas</div>
+      <div class="f-eq">AFC = FC / Q        (Fixed cost per unit)</div>
+      <div class="f-eq">AVC = VC / Q        (Variable cost per unit)</div>
+      <div class="f-eq">ATC = TC / Q = AFC + AVC</div>
+      <div class="f-eq">MC  = ΔTC / ΔQ = ΔVC / ΔQ</div>
+      <div class="f-note">MC uses only VC in the formula (fixed cost doesn't change, so it doesn't affect marginal cost).</div>
+    </div>
+
+    <table>
+      <tr><th>Curve</th><th>Shape</th><th>Reason</th></tr>
+      <tr><td><strong>AFC</strong></td><td>Always falling (hyperbola)</td><td>Same fixed cost spread over more and more units</td></tr>
+      <tr><td><strong>AVC</strong></td><td>U-shaped</td><td>Falls initially (efficiency), then rises (diminishing returns)</td></tr>
+      <tr><td><strong>ATC</strong></td><td>U-shaped</td><td>AFC always pulls down; AVC eventually dominates upward</td></tr>
+      <tr><td><strong>MC</strong></td><td>U-shaped (steeper)</td><td>Falls at first, then rises steeply due to diminishing MPL</td></tr>
+    </table>
+
+    <div class="alert danger">
+      <div class="alert-icon">⚡</div>
+      <div class="alert-body">
+        <strong>Must-know MC–ATC relationship:</strong><br>
+        MC &lt; ATC → ATC is <strong>falling</strong><br>
+        MC &gt; ATC → ATC is <strong>rising</strong><br>
+        MC = ATC → ATC is at its <strong>minimum (Efficient Scale)</strong><br>
+        Same logic applies between MC and AVC.
+      </div>
+    </div>
+
+    <div class="graph-wrap">
+      <div class="g-title">Cost Curves — MC intersects AVC &amp; ATC at their minimums</div>
+      <svg width="440" height="270" viewBox="0 0 440 270">
+        <defs><marker id="a5" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0,7 3.5,0 7" fill="#a1a1aa"/></marker></defs>
+        <line x1="50" y1="235" x2="415" y2="235" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a5)"/>
+        <line x1="50" y1="235" x2="50" y2="20" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a5)"/>
+        <text x="419" y="239" fill="#a1a1aa" font-size="11" font-family="Inter,sans-serif">Q</text>
+        <text x="36" y="17" fill="#a1a1aa" font-size="11" font-family="Inter,sans-serif">$</text>
+        <!-- AFC dashed -->
+        <path d="M 75,65 Q 130,155 210,190 Q 295,210 395,218" stroke="#a1a1aa" stroke-width="1.5" fill="none" stroke-dasharray="5,3"/>
+        <text x="397" y="222" fill="#a1a1aa" font-size="10" font-family="Inter,sans-serif">AFC</text>
+        <!-- AVC U-shaped -->
+        <path d="M 75,185 Q 155,130 225,125 Q 295,130 385,175" stroke="#0891b2" stroke-width="2" fill="none"/>
+        <text x="387" y="179" fill="#0891b2" font-size="10" font-weight="bold" font-family="Inter,sans-serif">AVC</text>
+        <!-- ATC U-shaped, above AVC -->
+        <path d="M 75,130 Q 165,78 240,75 Q 315,78 385,120" stroke="#4f46e5" stroke-width="2" fill="none"/>
+        <text x="387" y="124" fill="#4f46e5" font-size="10" font-weight="bold" font-family="Inter,sans-serif">ATC</text>
+        <!-- MC steeper U, cuts both -->
+        <path d="M 75,215 Q 140,105 200,72 Q 265,48 385,95" stroke="#d97706" stroke-width="2.5" fill="none"/>
+        <text x="387" y="99" fill="#d97706" font-size="10" font-weight="bold" font-family="Inter,sans-serif">MC</text>
+        <!-- Min ATC -->
+        <circle cx="238" cy="75" r="5" fill="white" stroke="#4f46e5" stroke-width="2"/>
+        <line x1="238" y1="75" x2="238" y2="235" stroke="#4f46e5" stroke-dasharray="3,3" stroke-width="1"/>
+        <text x="228" y="250" fill="#4f46e5" font-size="10" font-family="Inter,sans-serif">Q*(eff)</text>
+        <!-- Min AVC -->
+        <circle cx="223" cy="125" r="4" fill="white" stroke="#0891b2" stroke-width="2"/>
+        <!-- Notes -->
+        <text x="55" y="48" fill="#a1a1aa" font-size="9" font-family="Inter,sans-serif">MC cuts AVC &amp; ATC</text>
+        <text x="55" y="58" fill="#a1a1aa" font-size="9" font-family="Inter,sans-serif">at their minimum pts</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="section" id="m3-supply">
+    <div class="section-title"><span class="num m3">3.5</span> Revenue, Profit Max &amp; Shutdown Decisions</div>
+
+    <div class="formula">
+      <div class="f-label">Revenue — Perfect Competition</div>
+      <div class="f-eq">TR = P × Q  |  AR = P  |  MR = P  (constant)</div>
+      <div class="f-note">In perfect competition, the firm is a price taker. The demand curve facing the firm is perfectly horizontal.</div>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Profit Maximisation Rule</div>
+      <div class="f-eq">Produce where: MR = MC  (i.e. P = MC in perfect competition)</div>
+    </div>
+
+    <div class="alert danger">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-body">
+        <strong>Shutdown vs. Exit — Exam Favourite:</strong><br>
+        <strong>Short-run shutdown:</strong> Stop producing if P &lt; min AVC (can't cover variable costs).<br>
+        <strong>Long-run exit:</strong> Leave market if P &lt; min ATC (can't cover all costs).<br>
+        <strong>Continue even at a loss</strong> if min AVC ≤ P &lt; min ATC — losses are smaller than shutting down (you cover VC and some FC).
+      </div>
+    </div>
+
+    <table>
+      <tr><th>Price Condition</th><th>Short-Run Decision</th><th>Long-Run Decision</th></tr>
+      <tr><td><strong>P &gt; ATC</strong></td><td>Produce — profit ✓</td><td>Produce (new firms enter)</td></tr>
+      <tr><td><strong>AVC ≤ P &lt; ATC</strong></td><td>Produce (loss, but covers VC)</td><td>Exit market</td></tr>
+      <tr><td><strong>P &lt; AVC</strong></td><td>Shut down — stop producing</td><td>Exit immediately</td></tr>
+    </table>
+
+    <div class="grid2">
+      <div class="def m3">
+        <div class="def-label">Short-Run Supply Curve</div>
+        <p>The firm's <strong>MC curve above the minimum AVC point</strong>. Below min AVC, the firm supplies Q = 0 (shutdown).</p>
+      </div>
+      <div class="def m2">
+        <div class="def-label">Long-Run Supply Curve</div>
+        <p>The firm's <strong>MC curve above the minimum ATC point</strong>. Below min ATC, the firm exits permanently.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="m3-lr">
+    <div class="section-title"><span class="num m3">3.6</span> Long-Run Competitive Equilibrium</div>
+
+    <div class="def m3">
+      <div class="def-label">Long-Run Equilibrium</div>
+      <p>Profits attract new entrants; losses cause exits. This continues until <strong>economic profit = 0</strong>. At that point: P = MC = min ATC.</p>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Long-Run Equilibrium Conditions</div>
+      <div class="f-eq">P* = MR = MC = min ATC   →   Economic Profit = 0</div>
+    </div>
+
+    <h4>Worked Problem (From Course)</h4>
+    <div class="pq">
+      <div class="pq-q"><span>Given:</span> TC = 50 + ½Q² · Market Demand: Q = 120 − P · 9 identical firms. Find SR equilibrium, profit, and LR equilibrium.</div>
+      <div class="pq-a">
+        <p><strong>Firm costs:</strong> FC = 50, VC = ½Q², MC = Q, AVC = Q/2, ATC = 50/Q + Q/2</p>
+        <p><strong>Individual supply:</strong> Set P = MC → P = Q → Individual supply: Q = P</p>
+        <p><strong>Market supply (9 firms):</strong> Qs = 9P</p>
+        <p><strong>SR Equilibrium:</strong> 120 − P = 9P → P* = 12, Q* = 108. Each firm produces Q = 12.</p>
+        <p><strong>SR Profit:</strong> TR = 144, TC = 50 + 72 = 122. <strong>Profit = $22 &gt; 0 → Firms enter!</strong></p>
+        <p><strong>LR Equilibrium:</strong> Min ATC: set MC = ATC → Q = 50/Q + Q/2 → Q² = 100 → Q = 10. Min ATC = MC = $10.</p>
+        <p><strong>LR outcome:</strong> P* = 10, Q* = 110 (from demand). Each firm produces 10. <strong>Number of firms = 110/10 = 11.</strong> Zero economic profit. ✓</p>
+      </div>
+    </div>
+  </div>
+</div><!-- /MODULE 3 -->
+
+<!-- ══════════════════════════ MODULE 4 ══════════════════════════ -->
+<div id="m4">
+  <div class="module-header">
+    <div class="module-eyebrow m4">Module 04</div>
+    <div class="module-title">Monopoly &amp; Market Power</div>
+    <div class="module-divider"></div>
+  </div>
+
+  <div class="section" id="m4-def">
+    <div class="section-title"><span class="num m4">4.1</span> What is a Monopoly?</div>
+
+    <div class="def m4">
+      <div class="def-label">Monopoly</div>
+      <p>A market with a <strong>single seller</strong> who produces a good with no close substitutes. The monopolist is a <strong>price maker</strong> — it controls price by choosing how much to produce.</p>
+    </div>
+
+    <h4>Three Causes of Monopoly</h4>
+    <table>
+      <tr><th>Cause</th><th>Mechanism</th><th>Example</th></tr>
+      <tr><td><strong>Government regulation</strong></td><td>Patents, copyrights, licences grant exclusive rights</td><td>Pharmaceutical patents, music copyright</td></tr>
+      <tr><td><strong>Control of scarce resource</strong></td><td>Ownership of a unique input blocks competition</td><td>De Beers diamonds (historically)</td></tr>
+      <tr><td><strong>Natural monopoly</strong></td><td>ATC falls continuously — one firm is cheaper than two</td><td>Electricity grid, water pipes, railways</td></tr>
+    </table>
+
+    <div class="def m4">
+      <div class="def-label">Natural Monopoly</div>
+      <p>Occurs when a firm has <strong>very high fixed costs and near-zero marginal costs</strong> — ATC keeps falling as output increases. The whole market is cheapest to serve with one firm. Breaking it up would waste resources.</p>
+    </div>
+
+    <h4>Monopoly vs. Perfect Competition</h4>
+    <table>
+      <tr><th>Feature</th><th>Perfect Competition</th><th>Monopoly</th></tr>
+      <tr><td>Number of sellers</td><td>Many</td><td>One</td></tr>
+      <tr><td>Price control</td><td>Price taker (P given)</td><td>Price maker (chooses P via Q)</td></tr>
+      <tr><td>Demand curve</td><td>Horizontal (perfectly elastic)</td><td>Downward sloping = market demand</td></tr>
+      <tr><td>MR vs. Price</td><td>MR = P</td><td><strong>MR &lt; P always</strong></td></tr>
+      <tr><td>Long-run profit</td><td>Zero (π = 0)</td><td>Positive (persistent economic profit)</td></tr>
+      <tr><td>Efficiency</td><td>P = MC (allocatively efficient)</td><td>P &gt; MC (allocatively inefficient)</td></tr>
+    </table>
+  </div>
+
+  <div class="section" id="m4-prof">
+    <div class="section-title"><span class="num m4">4.2</span> Monopolist's Demand &amp; Profit Maximisation</div>
+
+    <p>The monopolist faces the <strong>entire market demand curve</strong> (downward sloping). To sell more, it must lower the price — not just for the extra unit, but for all units.</p>
+
+    <div class="alert danger">
+      <div class="alert-icon">💡</div>
+      <div class="alert-body"><strong>Why MR &lt; P:</strong> Selling one more unit earns P on that unit, but requires lowering the price on all previous units sold. The revenue lost on existing units makes MR always less than P. MR lies below the demand curve.</div>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Monopolist's MR Formula (Linear Demand)</div>
+      <div class="f-eq">If Demand: P = A − BQ  →  MR = A − 2BQ</div>
+      <div class="f-note">MR has the SAME intercept as demand but TWICE the slope. Always below the demand curve.</div>
+    </div>
+
+    <div class="formula">
+      <div class="f-label">Monopolist Profit Maximisation — 3 Steps</div>
+      <div class="f-eq">Step 1: Set MR = MC  →  find Qm (monopoly quantity)</div>
+      <div class="f-eq">Step 2: Find Pm from the demand curve at Qm</div>
+      <div class="f-eq">Step 3: Profit = (Pm − ATC) × Qm</div>
+      <div class="f-note">Result: Pm &gt; competitive price. Qm &lt; competitive quantity.</div>
+    </div>
+
+    <div class="graph-wrap">
+      <div class="g-title">Monopoly — MR = MC gives Qm; Pm read off Demand Curve; DWL = shaded triangle</div>
+      <svg width="450" height="290" viewBox="0 0 450 290">
+        <defs><marker id="a6" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0,7 3.5,0 7" fill="#a1a1aa"/></marker></defs>
+        <line x1="50" y1="255" x2="425" y2="255" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a6)"/>
+        <line x1="50" y1="255" x2="50" y2="20" stroke="#a1a1aa" stroke-width="1.5" marker-end="url(#a6)"/>
+        <text x="429" y="259" fill="#a1a1aa" font-size="11" font-family="Inter,sans-serif">Q</text>
+        <text x="36" y="17" fill="#a1a1aa" font-size="11" font-family="Inter,sans-serif">P</text>
+        <!-- DWL triangle shaded -->
+        <polygon points="230,160 325,160 230,205" fill="rgba(220,38,38,0.15)"/>
+        <!-- Demand line -->
+        <line x1="70" y1="40" x2="395" y2="240" stroke="#4f46e5" stroke-width="2.5"/>
+        <text x="399" y="245" fill="#4f46e5" font-size="11" font-weight="bold" font-family="Inter,sans-serif">D</text>
+        <!-- MR line (same intercept, double slope) -->
+        <line x1="70" y1="40" x2="235" y2="255" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <text x="218" y="268" fill="#4f46e5" font-size="11" font-weight="bold" font-family="Inter,sans-serif">MR</text>
+        <!-- MC horizontal -->
+        <line x1="50" y1="205" x2="425" y2="205" stroke="#0891b2" stroke-width="2"/>
+        <text x="427" y="209" fill="#0891b2" font-size="11" font-weight="bold" font-family="Inter,sans-serif">MC</text>
+        <!-- Qm -->
+        <line x1="230" y1="160" x2="230" y2="255" stroke="#dc2626" stroke-dasharray="4,3" stroke-width="1.5"/>
+        <text x="222" y="270" fill="#dc2626" font-size="11" font-weight="600" font-family="Inter,sans-serif">Qm</text>
+        <!-- Pm -->
+        <line x1="50" y1="160" x2="230" y2="160" stroke="#dc2626" stroke-dasharray="4,3" stroke-width="1.5"/>
+        <text x="16" y="164" fill="#dc2626" font-size="11" font-weight="600" font-family="Inter,sans-serif">Pm</text>
+        <!-- Qc / Pc -->
+        <line x1="325" y1="205" x2="325" y2="255" stroke="#16a34a" stroke-dasharray="4,3" stroke-width="1.5"/>
+        <text x="317" y="270" fill="#16a34a" font-size="11" font-weight="600" font-family="Inter,sans-serif">Qc</text>
+        <text x="16" y="209" fill="#16a34a" font-size="11" font-weight="600" font-family="Inter,sans-serif">Pc</text>
+        <!-- DWL label -->
+        <text x="248" y="192" fill="#dc2626" font-size="10" font-weight="bold" font-family="Inter,sans-serif">DWL</text>
+        <!-- Key points -->
+        <circle cx="230" cy="160" r="5" fill="white" stroke="#dc2626" stroke-width="2"/>
+        <circle cx="325" cy="205" r="5" fill="white" stroke="#16a34a" stroke-width="2"/>
+        <!-- Profit box indication -->
+        <rect x="50" y="140" width="180" height="20" fill="rgba(79,70,229,0.1)" stroke="rgba(79,70,229,0.4)" stroke-width="1" stroke-dasharray="3,2"/>
+        <text x="80" y="153" fill="#4f46e5" font-size="9" font-family="Inter,sans-serif">Monopoly Profit Area</text>
+      </svg>
+    </div>
+
+    <h4>SpaceX Worked Example</h4>
+    <div class="pq">
+      <div class="pq-q"><span>Given:</span> Demand: Q = 8 − P (→ P = 8 − Q) · TC = 3 + 2Q → MC = 2. Find Qm, Pm, profit, and DWL.</div>
+      <div class="pq-a">
+        <p><strong>MR:</strong> P = 8 − Q → MR = 8 − 2Q</p>
+        <p><strong>Set MR = MC:</strong> 8 − 2Q = 2 → Qm = 3</p>
+        <p><strong>Pm from demand:</strong> P = 8 − 3 = <strong>$5</strong></p>
+        <p><strong>Profit:</strong> TR = 15, TC = 9. <strong>Profit = $6</strong></p>
+        <p><strong>Competitive outcome:</strong> P = MC → P = 2, Qc = 6</p>
+        <p><strong>DWL:</strong> ½ × (5 − 2) × (6 − 3) = <strong>$4.50</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="m4-dwl">
+    <div class="section-title"><span class="num m4">4.3</span> Social Cost of Monopoly — Deadweight Loss</div>
+
+    <div class="formula">
+      <div class="f-label">Deadweight Loss Formula</div>
+      <div class="f-eq">DWL = ½ × (Pm − MC) × (Qc − Qm)</div>
+      <div class="f-note">The triangle between Qm and Qc. Transactions that would mutually benefit buyers and sellers that never happen because of monopoly.</div>
+    </div>
+
+    <table>
+      <tr><th>Surplus</th><th>Competitive Market</th><th>Monopoly</th></tr>
+      <tr><td>Consumer Surplus</td><td>Large</td><td>Reduced (area B+C transferred/lost)</td></tr>
+      <tr><td>Producer Surplus</td><td>Smaller</td><td>Larger (gains area B from consumers)</td></tr>
+      <tr><td>Deadweight Loss</td><td>Zero</td><td>Triangle C+E — gone forever</td></tr>
+      <tr><td>Total Surplus</td><td>Maximum</td><td>Below maximum</td></tr>
+    </table>
+
+    <div class="alert info">
+      <div class="alert-icon">💡</div>
+      <div class="alert-body"><strong>Why monopoly is inefficient:</strong> Monopolist sets P &gt; MC. Consumers who value the good above MC but below Pm don't buy — even though the sale would benefit both parties. This is the deadweight loss.</div>
+    </div>
+  </div>
+
+  <div class="section" id="m4-pd">
+    <div class="section-title"><span class="num m4">4.4</span> Price Discrimination — All Three Degrees</div>
+
+    <div class="def m4">
+      <div class="def-label">Price Discrimination</div>
+      <p>Charging different prices to different consumers for the <strong>same product</strong>, based on willingness to pay — to capture more consumer surplus as profit.</p>
+    </div>
+
+    <div class="alert info">
+      <div class="alert-icon">📋</div>
+      <div class="alert-body"><strong>Two conditions required:</strong> (1) Market power — must be able to set prices. (2) No arbitrage — buyers who get cheap prices can't resell to others at high prices.</div>
+    </div>
+
+    <h4>1st Degree — Perfect Price Discrimination</h4>
+    <div class="def m4">
+      <div class="def-label">1st Degree</div>
+      <p>Charge each consumer their exact <strong>reservation price</strong> (maximum they'd pay). Extracts 100% of consumer surplus.</p>
+    </div>
+    <ul>
+      <li>No deadweight loss — produces the competitive quantity</li>
+      <li>All consumer surplus goes to the producer</li>
+      <li>MR = AR = P = MC at the margin</li>
+      <li>Practically impossible (requires perfect information about each buyer)</li>
+      <li>Examples: personalised negotiation, some auction models</li>
+    </ul>
+
+    <h4>2nd Degree — Quantity-Based Pricing</h4>
+    <div class="def m4">
+      <div class="def-label">2nd Degree</div>
+      <p>Different prices for <strong>different quantity blocks</strong>. Buyers self-select based on how much they purchase.</p>
+    </div>
+    <ul>
+      <li>Also called <strong>block pricing</strong> or non-linear pricing</li>
+      <li>Firm doesn't need to know individual willingness to pay</li>
+      <li>Examples: electricity (first 100 units at rate A, next 200 at rate B), telecom data plans, bulk discounts</li>
+    </ul>
+
+    <h4>3rd Degree — Group-Based Pricing</h4>
+    <div class="def m4">
+      <div class="def-label">3rd Degree</div>
+      <p>Different prices charged to <strong>different identifiable groups</strong> based on observable characteristics correlated with willingness to pay.</p>
+    </div>
+    <div class="formula">
+      <div class="f-label">3rd Degree Equilibrium</div>
+      <div class="f-eq">MR₁ = MR₂ = MC</div>
+      <div class="f-note">Set MR equal across all market segments and equal to MC. The less elastic group pays the higher price.</div>
+    </div>
+
+    <div class="alert warn">
+      <div class="alert-icon">📌</div>
+      <div class="alert-body"><strong>Price–Elasticity Rule:</strong> Higher price is charged to the <strong>less elastic group</strong>. Students pay less (elastic, many substitutes). Business travellers pay more (inelastic, must travel). Formula: MR = P(1 + 1/ε) → equalise MR across groups → higher |ε| → lower P.</div>
+    </div>
+
+    <table>
+      <tr><th>Type</th><th>Based On</th><th>CS Captured</th><th>DWL</th><th>Real Example</th></tr>
+      <tr><td><strong>1st Degree</strong></td><td>Individual willingness</td><td>100%</td><td>Zero</td><td>Personalised negotiation</td></tr>
+      <tr><td><strong>2nd Degree</strong></td><td>Quantity purchased</td><td>Partial</td><td>Reduced</td><td>Utility block pricing</td></tr>
+      <tr><td><strong>3rd Degree</strong></td><td>Observable group</td><td>Partial</td><td>May remain</td><td>Student/senior discounts, airline classes</td></tr>
+    </table>
+
+    <h4>MyArt Worked Example</h4>
+    <div class="pq">
+      <div class="pq-q"><span>Given:</span> Professionals: 50 people, value = $700. Amateurs: 50 people, value = $220. MC = $20.</div>
+      <div class="pq-a">
+        <p><strong>Uniform price $700 (sell only to professionals):</strong> Profit = (700−20)×50 = <strong>$34,000</strong></p>
+        <p><strong>Uniform price $220 (sell to everyone):</strong> Profit = (220−20)×100 = <strong>$20,000</strong> (worse!)</p>
+        <p><strong>3rd Degree PD ($700 professionals, $220 amateurs):</strong><br>
+        Profit = (700−20)×50 + (220−20)×50 = $34,000 + $10,000 = <strong>$44,000</strong> ← Best outcome</p>
+        <p>Price discrimination increased profit by <strong>$10,000</strong> over the best uniform price strategy.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="m4-lerner">
+    <div class="section-title"><span class="num m4">4.5</span> Lerner Index — Measuring Market Power</div>
+
+    <div class="formula">
+      <div class="f-label">Lerner Index</div>
+      <div class="f-eq">L = (P − MC) / P</div>
+      <div class="f-eq">L = −1 / εp</div>
+      <div class="f-note">Ranges from 0 to 1. Higher = more monopoly power. Second formula links it directly to price elasticity.</div>
+    </div>
+
+    <table>
+      <tr><th>L Value</th><th>Market Structure</th><th>Interpretation</th></tr>
+      <tr><td>L = 0</td><td>Perfect Competition</td><td>P = MC, zero pricing power</td></tr>
+      <tr><td>0 &lt; L &lt; 1</td><td>Imperfect Competition</td><td>Some degree of pricing power</td></tr>
+      <tr><td>L → 1</td><td>Strong Monopoly</td><td>P far above MC; very inelastic demand</td></tr>
+    </table>
+  </div>
+</div><!-- /MODULE 4 -->
+
+<hr class="divider">
+
+<!-- ══════════════════════════ CHEAT SHEET ══════════════════════════ -->
+<div id="cheatsheet">
+  <div class="cheat-header">
+    <div class="ch-eyebrow">All Modules · Exam Ready</div>
+    <h2>Master Cheat Sheet</h2>
+    <p style="color:var(--text2);font-size:0.87rem;margin-top:6px">Every formula · Every rule · Every trap — in one place</p>
+  </div>
+
+  <div class="cheat-grid">
+    <div class="cheat-card">
+      <h4>Module 1 — Core Concepts</h4>
+      <span class="cf">OC = value of next-best alternative forgone</span>
+      <span class="cn">Opportunity cost — always relevant to decisions</span>
+      <span class="cf">Sunk Cost → IGNORE in all decisions</span>
+      <span class="cn">Already paid, unrecoverable, irrelevant</span>
+      <span class="cf">Do more if MB ≥ MC | Stop at MB = MC</span>
+      <span class="cn">Marginal Principle — think at the margin</span>
+      <span class="cf">Qd = a − bP  |  Qs = c + dP</span>
+      <span class="cn">Linear demand (negative slope), linear supply (positive slope)</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Module 2 — Elasticity</h4>
+      <span class="cf">εp = (ΔQ/Q) / (ΔP/P) = (ΔQ/ΔP) × (P/Q)</span>
+      <span class="cn">PED — always negative; use |εp| for comparison</span>
+      <span class="cf">Midpoint: εp = ΔQ/avg(Q)  ÷  ΔP/avg(P)</span>
+      <span class="cf">εM = (ΔQ/Q) / (ΔM/M)</span>
+      <span class="cn">Income elas. — Normal &gt;0, Inferior &lt;0, Luxury &gt;1</span>
+      <span class="cf">εXY = (ΔQx/Qx) / (ΔPy/Py)</span>
+      <span class="cn">Cross-price — Substitutes &gt;0, Complements &lt;0</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Module 2 — Revenue &amp; Tax</h4>
+      <span class="cf">TR = P × Q</span>
+      <span class="cn">Elastic: P↑ → TR↓  |  Inelastic: P↑ → TR↑</span>
+      <span class="cf">CS = area below D, above P*</span>
+      <span class="cf">PS = area above S, below P*</span>
+      <span class="cf">Total Surplus = CS + PS (max at equilibrium)</span>
+      <span class="cf">Tax Revenue = t × Q_after_tax</span>
+      <span class="cf">DWL (tax) = ½ × t × ΔQ</span>
+      <span class="cn">More inelastic side bears more tax burden</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Module 3 — Profit &amp; Costs</h4>
+      <span class="cf">Economic Profit = TR − Explicit − Implicit</span>
+      <span class="cf">Accounting Profit = TR − Explicit only</span>
+      <span class="cf">TC = FC + VC</span>
+      <span class="cf">AFC = FC/Q  |  AVC = VC/Q  |  ATC = AFC + AVC</span>
+      <span class="cf">MC = ΔTC/ΔQ = ΔVC/ΔQ</span>
+      <span class="cn">MC cuts ATC &amp; AVC at their MINIMUM points</span>
+      <span class="cf">Profit = TR − TC = (P − ATC) × Q</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Module 3 — Supply &amp; LR</h4>
+      <span class="cf">MPL = ΔQ / ΔL</span>
+      <span class="cn">Diminishing MPL → MC rises eventually</span>
+      <span class="cf">SR Shutdown: P &lt; min AVC → supply Q=0</span>
+      <span class="cf">LR Exit: P &lt; min ATC → leave market</span>
+      <span class="cf">SR Supply curve = MC above min AVC</span>
+      <span class="cf">LR Supply curve = MC above min ATC</span>
+      <span class="cf">LR Equilibrium: P = MC = min ATC → π = 0</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Module 4 — Monopoly</h4>
+      <span class="cf">If P = A − BQ → MR = A − 2BQ</span>
+      <span class="cn">MR: same intercept, twice the slope</span>
+      <span class="cf">Profit Max: MR = MC → Qm → Pm (off demand)</span>
+      <span class="cf">Profit = (Pm − ATC) × Qm</span>
+      <span class="cf">DWL = ½ × (Pm − MC) × (Qc − Qm)</span>
+      <span class="cf">Lerner Index: L = (P − MC)/P = −1/εp</span>
+      <span class="cn">L = 0 (perfect comp.) → 1 (full monopoly)</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>Module 4 — Price Discrimination</h4>
+      <span class="cf">1st degree: charge each buyer reservation price</span>
+      <span class="cn">All CS → Producer; DWL = 0; Q = competitive Q</span>
+      <span class="cf">2nd degree: price by quantity blocks</span>
+      <span class="cn">Self-selection; utilities, bulk discounts</span>
+      <span class="cf">3rd degree: MR₁ = MR₂ = MC</span>
+      <span class="cn">Different prices per group; higher P for less elastic</span>
+      <span class="cf">MR = P(1 + 1/ε)</span>
+      <span class="cn">Equalize MR across all market segments</span>
+    </div>
+
+    <div class="cheat-card">
+      <h4>⚠️ 10 MCQ Traps</h4>
+      <span class="cf">1. Sunk cost → always IGNORE</span>
+      <span class="cf">2. Price change = move ALONG curve, not shift</span>
+      <span class="cf">3. Elastic: P↑ → TR↓ (OPPOSITE direction)</span>
+      <span class="cf">4. Zero economic profit ≠ zero accounting profit</span>
+      <span class="cf">5. Fixed cost ≠ sunk cost (FC avoidable by exit)</span>
+      <span class="cf">6. MC = ATC → ATC at MINIMUM, not falling</span>
+      <span class="cf">7. Monopolist: MR = MC, then read P off D curve</span>
+      <span class="cf">8. 1st degree PD → DWL = 0 (not positive)</span>
+      <span class="cf">9. Elasticity ≠ slope (changes along linear demand)</span>
+      <span class="cf">10. SR shutdown: P &lt; AVC (not ATC)</span>
+    </div>
+  </div>
+
+  <!-- Quick Graph Reference -->
+  <div class="section">
+    <div class="section-title">Quick Graph Reference</div>
+    <table>
+      <tr><th>Graph</th><th>Key Feature to Know</th></tr>
+      <tr><td><strong>Demand Curve</strong></td><td>Downward sloping. Shift right = more demand. Movement along = price change only. Elastic at top, inelastic at bottom.</td></tr>
+      <tr><td><strong>Supply Curve</strong></td><td>Upward sloping. Shift right = more supply. Technology improvement and input cost reduction shift right.</td></tr>
+      <tr><td><strong>CS &amp; PS</strong></td><td>CS = triangle above P, below D. PS = triangle below P, above S. Both maximised at E (equilibrium).</td></tr>
+      <tr><td><strong>Cost Curves</strong></td><td>AFC always falls. AVC and ATC are U-shaped. MC is U-shaped and cuts AVC and ATC at their minimums.</td></tr>
+      <tr><td><strong>Monopoly</strong></td><td>MR below D (same intercept, double slope). Set MR=MC for Qm. Read Pm off D curve. DWL = triangle to the right of Qm.</td></tr>
+      <tr><td><strong>Tax</strong></td><td>Tax shifts S up by t. New Q lower. Buyers pay more, sellers receive less. DWL = triangle between old and new Q.</td></tr>
+    </table>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ══════════════════════════ PRACTICE ══════════════════════════ -->
+<div id="practice">
+  <div class="practice-header">
+    <div class="ch-eyebrow">MCQ-Optimised</div>
+    <h2>Practice Questions</h2>
+    <p style="color:var(--text2);font-size:0.87rem;margin-top:6px">12 questions across all modules with full step-by-step workings</p>
+  </div>
+
+  <div class="sub-module-label m1">Module 1 · Foundations</div>
+
+  <div class="pq">
+    <div class="pq-q"><span>Q1.</span> Priya earns ₹800/day. She takes 3 days off (unpaid) to attend a workshop costing ₹500 in fees. What is her total economic cost of attending?</div>
+    <div class="pq-a">
+      <p><strong>Explicit cost:</strong> ₹500 (workshop fee)</p>
+      <p><strong>Opportunity cost (implicit):</strong> 3 × ₹800 = ₹2,400 (foregone wages)</p>
+      <p><strong>Total economic cost = ₹2,900.</strong> An accountant would say ₹500. An economist includes all foregone opportunities.</p>
+    </div>
+  </div>
+
+  <div class="pq">
+    <div class="pq-q"><span>Q2.</span> A company spent ₹10 lakh on a marketing campaign with no results. The consultant says "we must continue because we've already spent ₹10 lakh." Is this correct?</div>
+    <div class="pq-a">
+      <p><strong>No — this is the sunk cost fallacy.</strong> The ₹10 lakh is already spent and unrecoverable. Whether to continue should be based only on future MB vs. future MC. The past spend is irrelevant.</p>
+    </div>
+  </div>
+
+  <div class="pq">
+    <div class="pq-q"><span>Q3.</span> Qd = 100 − 2P. Qs = 20 + 3P. Find P* and Q*.</div>
+    <div class="pq-a">
+      <p>Set Qd = Qs: 100 − 2P = 20 + 3P → 80 = 5P → <strong>P* = 16</strong></p>
+      <p>Q* = 100 − 2(16) = 68 → <strong>Q* = 68</strong></p>
+    </div>
+  </div>
+
+  <div class="sub-module-label m2">Module 2 · Markets</div>
+
+  <div class="pq">
+    <div class="pq-q"><span>Q4.</span> Coffee price rises from ₹100 to ₹120. Quantity demanded falls from 500 to 400. Calculate price elasticity. Is it elastic or inelastic?</div>
+    <div class="pq-a">
+      <p>% ΔQ = (400−500)/500 = −20%  |  % ΔP = (120−100)/100 = +20%</p>
+      <p>εp = −20%/20% = <strong>−1.0</strong> → |εp| = 1.0 → <strong>Unit Elastic</strong>. Total Revenue is unchanged when price changes.</p>
+    </div>
+  </div>
+
+  <div class="pq">
+    <div class="pq-q"><span>Q5.</span> A ₹10 tax is placed on petrol. Petrol demand is highly inelastic (εp = −0.2). Who bears most of the tax burden?</div>
+    <div class="pq-a">
+      <p><strong>Buyers (consumers) bear most of the burden.</strong> Petrol demand is inelastic — consumers cannot easily avoid buying it. The more inelastic side bears more. With εp = −0.2, nearly all of the ₹10 is passed on to consumers as a higher price.</p>
+    </div>
+  </div>
+
+  <div class="pq">
+    <div class="pq-q"><span>Q6.</span> Income rises from ₹30,000 to ₹40,000. Restaurant meals bought rises from 8 to 12/month. What is income elasticity and what type of good is this?</div>
+    <div class="pq-a">
+      <p>% ΔQ = (12−8)/8 = 50%  |  % ΔM = (40k−30k)/30k = 33.3%</p>
+      <p>εM = 50%/33.3% = <strong>1.5</strong>. Since εM &gt; 1 → <strong>Luxury (Superior) Good</strong>. Demand rises proportionally more than income.</p>
+    </div>
+  </div>
+
+  <div class="sub-module-label m3">Module 3 · Firms</div>
+
+  <div class="pq">
+    <div class="pq-q"><span>Q7.</span> TC = 200 + 4Q. P = 6. MC = 4. AVC = 4. Should the firm produce or shut down in the short run?</div>
+    <div class="pq-a">
+      <p>Shutdown check: compare P vs. min AVC. P = 6 &gt; AVC = 4 → <strong>Do NOT shut down. Continue producing.</strong></p>
+      <p>Profit at Q: TR − TC = 6Q − (200 + 4Q) = 2Q − 200. Firm makes profit once Q &gt; 100. Even if at a loss, since P &gt; AVC, it recovers variable costs and contributes to fixed costs.</p>
+    </div>
+  </div>
+
+  <div class="pq">
+    <div class="pq-q"><span>Q8.</span> At Q = 50: MC = ₹15, ATC = ₹20. Is ATC rising, falling, or at its minimum?</div>
+    <div class="pq-a">
+      <p>MC (₹15) &lt; ATC (₹20) → MC is below ATC → ATC is <strong>FALLING</strong>.</p>
+      <p>ATC continues to fall until MC = ATC (the minimum/efficient scale point). After that, MC &gt; ATC and ATC rises.</p>
+    </div>
+  </div>
+
+  <div class="sub-module-label m4">Module 4 · Monopoly</div>
+
+  <div class="pq">
+    <div class="pq-q"><span>Q9.</span> Monopolist: P = 50 − 2Q, TC = 10 + 2Q (MC = 2). Find Qm, Pm, profit, and DWL vs. competitive market.</div>
+    <div class="pq-a">
+      <p><strong>MR:</strong> MR = 50 − 4Q</p>
+      <p><strong>MR = MC:</strong> 50 − 4Q = 2 → Qm = 12. Pm = 50 − 24 = <strong>₹26</strong></p>
+      <p><strong>Profit:</strong> TR = 312, TC = 34. <strong>Profit = ₹278</strong></p>
+      <p><strong>Competitive:</strong> P = MC → 50 − 2Q = 2 → Qc = 24, Pc = 2</p>
+      <p><strong>DWL:</strong> ½ × (26−2) × (24−12) = ½ × 24 × 12 = <strong>₹144</strong></p>
+    </div>
+  </div>
+
+  <div class="pq">
+    <div class="pq-q"><span>Q10.</span> A cinema charges ₹300 to adults, ₹150 to students for the same movie. MC = ₹50. What type of PD? Which group has more elastic demand?</div>
+    <div class="pq-a">
+      <p><strong>3rd Degree Price Discrimination</strong> — different prices for different identifiable groups.</p>
+      <p>In 3rd degree PD, <strong>lower price → more elastic demand</strong>. Students pay ₹150 → students are more elastic (budget-sensitive, streaming alternatives). Adults pay ₹300 → less elastic.</p>
+    </div>
+  </div>
+
+  <div class="pq">
+    <div class="pq-q"><span>Q11.</span> P = ₹100, MC = ₹60. Calculate the Lerner Index and interpret it.</div>
+    <div class="pq-a">
+      <p>L = (P − MC) / P = (100 − 60) / 100 = <strong>0.4</strong></p>
+      <p>Moderate market power. 40% of price is markup above cost. Also: L = −1/εp → εp = −2.5 (demand elasticity at this point).</p>
+    </div>
+  </div>
+
+  <div class="pq">
+    <div class="pq-q"><span>Q12.</span> A monopolist can perfectly price discriminate (1st degree). Compared to uniform pricing, what happens to DWL and consumer surplus?</div>
+    <div class="pq-a">
+      <p><strong>DWL = 0.</strong> The monopolist now produces the competitive quantity (maximising total surplus, like a competitive market). However, <strong>Consumer Surplus = 0</strong> — the monopolist captures ALL of it as profit. Total surplus is maximised, but it all goes to the producer.</p>
+    </div>
+  </div>
+
+</div><!-- /PRACTICE -->
+
+<div class="footer">
+  <strong>IIM Bangalore · BBA DBE Term 2 · Prof. Sanket Ramkant Patil</strong><br>
+  Complete Notes — All 4 Modules · MCQ-Optimised<br><br>
+  Good luck on your exam, Aditya.
+</div>
+
+</div><!-- /container -->
+</body>
+</html>
